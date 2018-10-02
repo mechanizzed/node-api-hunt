@@ -23,5 +23,10 @@ module.exports = {
       new: true
     });
     return res.json(product);
+  },
+
+  async destroy(req, res) {
+    await Product.findByIdAndDelete(req.params.id);
+    return res.send('Product has been removed');
   }
 };
