@@ -10,10 +10,8 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
-requireDir('./src/models');
+require('./src/models/Product/Product');
 
-app.get('/', (req, res) => {
-  res.send('Hello World teste');
-});
+app.use('/api', require('./src/routes'));
 
 app.listen(3001);
